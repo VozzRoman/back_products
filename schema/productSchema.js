@@ -13,6 +13,7 @@ const productSchema = Joi.object({
   thumbnail: Joi.string(),
   title: Joi.string().required(),
   totalPrice: Joi.number(),
+  favorite: Joi.boolean(),
 });
 
 module.exports = productSchema;

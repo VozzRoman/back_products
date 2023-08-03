@@ -3,7 +3,7 @@ const productsController = require("../../controllers");
 const router = express.Router();
 const { validation } = require("../../middleWare");
 const { productSchema } = require("../../schema");
-// validation(productSchema);
+
 router.get("/", productsController.getAll);
 
 router.get("/:id", productsController.finById);

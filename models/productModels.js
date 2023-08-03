@@ -1,6 +1,6 @@
 //ФОРМируем Модель
 const { model, Schema } = require("mongoose");
-const productsSchema = Schema(
+const productsSchema = new Schema(
   {
     title: {
       type: String,
@@ -38,11 +38,21 @@ const productsSchema = Schema(
       type: String,
       required: [true, "category is reqired"],
     },
-    thumbnail: String,
-    images: String,
+    thumbnail: {
+      type: String,
+      default: "",
+    },
+    images: {
+      type: String,
+      default: "",
+    },
     count: {
       type: Number,
       default: 1,
+    },
+    favorite: {
+      type: Boolean,
+      default: false,
     },
   },
   { versionKey: false, timestamps: true }

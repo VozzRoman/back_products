@@ -1,10 +1,10 @@
+//Валидация ДжоиСхемы (выдаеи правильный статус при ошибке - 400)
 const validation = (schema) => {
   return (req, res, next) => {
     const { error } = schema.validate(req.body);
-    console.log(error);
     if (error) {
-      error.status = 400;
-      next(error);
+      res.status(400);
+      throw error;
     }
     next();
   };
