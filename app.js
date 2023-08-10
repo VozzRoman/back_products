@@ -1,5 +1,5 @@
 const express = require("express");
-const logger = require("morgan");
+const logger = require("morgan"); //выводит логи (запросы на сервер) в консоль
 const cors = require("cors");
 //путь к папке config---------------------
 const path = require("path");
@@ -25,15 +25,15 @@ app.use("/api/products", productsRouter);
 app.use((req, res) => {
   res.status(404).json({ message: "Not found" });
 });
-
-// app.use("*", (req, res, next) => {
-//   res.status(404).json({ code: 404, massege: "Unable to request" });
-//   next();
-// });
 app.use((err, req, res, next) => {
-  const statusCode = res.statusCode || 500;
-  res.status(statusCode);
-  res.json({ code: statusCode, stack: err.stack });
+  const { status = 500, message = "Server error" } = err;
+  res.status(status).json({ message });
 });
+
+// app.use((err, req, res, next) => {
+//   const statusCode = res.statusCode || 500;
+//   res.status(statusCode);
+//   res.json({ code: statusCode, stack: err.stack });
+// });
 
 module.exports = app;

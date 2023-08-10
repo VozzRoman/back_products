@@ -26,7 +26,7 @@ const productsSchema = new Schema(
       type: Number,
       default: 0,
     },
-    raitng: {
+    rating: {
       type: Number,
       default: 0.0,
     },
