@@ -3,6 +3,7 @@ const finById = require("./findById");
 const deleteProd = require("./delete");
 const updateProd = require("./update");
 const addProd = require("./add");
+const updateImage = require("./updateImage");
 
 module.exports = {
   getAll,
@@ -10,4 +11,5 @@ module.exports = {
   deleteProd,
   updateProd,
   addProd,
+  updateImage,
 };
