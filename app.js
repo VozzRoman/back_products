@@ -10,6 +10,7 @@ console.log(process.env.Yana);
 
 const productsRouter = require("./routes/api/products");
 const commentsRouter = require("./routes/api/comments");
+const authRouter = require("./routes/api/auth");
 
 const app = express();
 
@@ -22,6 +23,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static("public"));
 
+app.use("/api/auth", authRouter);
 app.use("/api/products", productsRouter);
 app.use("/api/comments", commentsRouter);
 
