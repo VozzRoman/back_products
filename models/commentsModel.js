@@ -12,6 +12,10 @@ const commentsModel = new Schema(
     postId: {
       type: Number,
     },
+    owner: {
+      type: Schema.Types.ObjectId,
+      ref: "user",
+    },
   },
   { versionKey: false, timestamps: true }
 );

@@ -1,6 +1,7 @@
 const CommentsModel = require("../../models/commentsModel");
 const asyncHandler = require("express-async-handler");
 const createError = require("http-errors");
+const { UserModel } = require("../../models/userModels");
 
 const getAll = asyncHandler(async (req, res) => {
   const comments = await CommentsModel.find({});

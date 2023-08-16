@@ -20,6 +20,7 @@ const signin = asyncHandler(async (req, res) => {
     id: condidate._id,
   };
   const token = jwt.sign(payload, process.env.SECRET_KEY, { expiresIn: "23h" });
+  await UserModel.findByIdAndUpdate(condidate._id, { token });
   res.json({ token });
 });
 

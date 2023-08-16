@@ -3,7 +3,8 @@ const asyncHandler = require("express-async-handler");
 const createError = require("http-errors");
 
 const add = asyncHandler(async (req, res) => {
-  const comment = await CommentsModel.create({ ...req.body });
+  const { _id: owner, name } = req.user;
+  const comment = await CommentsModel.create({ ...req.body, owner, name });
   if (!comment) {
     throw createError(400, "unable create comment");
   }
